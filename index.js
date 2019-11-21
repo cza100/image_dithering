@@ -2,6 +2,7 @@ const fs = require('fs');
 const getPixels = require('get-pixels');
 const savePixels = require('save-pixels');
 const handle_fsd = require('./fsd.js');
+const handle_jjand = require('./jjand.js');
 
 const dither = (imgUrl, algorithm) => {
   getPixels(imgUrl, function(error, pixels) {
@@ -10,14 +11,16 @@ const dither = (imgUrl, algorithm) => {
       return;
     }
 
-    imgWidth = pixels.shape[0];
-    imgHeight = pixels.shape[1];
-
     let newImg;
 
     switch (algorithm) {
+      //Floyd-Steinberg Dithering
       case 'fsd':
-        newImg = handle_fsd(imgWidth, imgHeight, pixels);
+        newImg = handle_fsd(pixels);
+        break;
+      //Jarvis, Judice, and Ninke Dithering
+      case 'jjand':
+        newImg = handle_jjand(pixels);
         break;
       default:
         console.log('no algorithm selected');
@@ -28,4 +31,4 @@ const dither = (imgUrl, algorithm) => {
   });
 };
 
-dither('ttt.png', 'fsd');
+dither('xxx.png', 'jjand');
