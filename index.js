@@ -3,6 +3,8 @@ const getPixels = require('get-pixels');
 const savePixels = require('save-pixels');
 const handle_fsd = require('./fsd.js');
 const handle_jjand = require('./jjand.js');
+const handle_ad = require('./ad.js');
+const handle_bd = require('./bd.js');
 
 const dither = (imgUrl, algorithm) => {
   getPixels(imgUrl, function(error, pixels) {
@@ -22,6 +24,12 @@ const dither = (imgUrl, algorithm) => {
       case 'jjand':
         newImg = handle_jjand(pixels);
         break;
+      case 'ad':
+        newImg = handle_ad(pixels);
+        break;
+      case 'bd':
+        newImg = handle_bd(pixels);
+        break;
       default:
         console.log('no algorithm selected');
     }
@@ -31,4 +39,4 @@ const dither = (imgUrl, algorithm) => {
   });
 };
 
-dither('xxx.png', 'jjand');
+dither('ttt.png', 'bd');
