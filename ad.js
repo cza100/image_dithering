@@ -12,9 +12,6 @@ module.exports = function(pixels) {
       newRGB = palette.findClosestPaletteColor(oldRGB);
 
       errRGB = palette.calcError(oldRGB, newRGB);
-      errR = errRGB[0];
-      errG = errRGB[1];
-      errB = errRGB[2];
 
       palette.setRGB(x, y, pixels, newRGB);
 
