@@ -1,4 +1,4 @@
-//Jarvis, Judice, and Ninke Dithering
+//Sierra Dithering
 const palette = require('./palette.js');
 
 module.exports = function(pixels) {
@@ -17,74 +17,62 @@ module.exports = function(pixels) {
 
       if (x + 1 < w) {
         calcRGB = palette.getRGB(x + 1, y, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 7.0 / 48);
+        effectRGB = palette.diffusion(calcRGB, errRGB, 5.0 / 32);
         palette.setRGB(x + 1, y, pixels, effectRGB);
       }
 
       if (x + 2 < w) {
         calcRGB = palette.getRGB(x + 2, y, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 5.0 / 48);
+        effectRGB = palette.diffusion(calcRGB, errRGB, 3.0 / 32);
         palette.setRGB(x + 2, y, pixels, effectRGB);
       }
 
       if (x - 2 >= 0 && y + 1 < h) {
         calcRGB = palette.getRGB(x - 2, y + 1, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 3.0 / 48);
+        effectRGB = palette.diffusion(calcRGB, errRGB, 2.0 / 32);
         palette.setRGB(x - 2, y + 1, pixels, effectRGB);
       }
 
       if (x - 1 >= 0 && y + 1 < h) {
         calcRGB = palette.getRGB(x - 1, y + 1, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 5.0 / 48);
+        effectRGB = palette.diffusion(calcRGB, errRGB, 4.0 / 32);
         palette.setRGB(x - 1, y + 1, pixels, effectRGB);
       }
 
       if (y + 1 < h) {
         calcRGB = palette.getRGB(x, y + 1, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 7.0 / 48);
+        effectRGB = palette.diffusion(calcRGB, errRGB, 5.0 / 32);
         palette.setRGB(x, y + 1, pixels, effectRGB);
       }
 
       if (x + 1 < w && y + 1 < h) {
         calcRGB = palette.getRGB(x + 1, y + 1, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 5.0 / 48);
+        effectRGB = palette.diffusion(calcRGB, errRGB, 4.0 / 32);
         palette.setRGB(x + 1, y + 1, pixels, effectRGB);
       }
 
       if (x + 2 < w && y + 1 < h) {
         calcRGB = palette.getRGB(x + 2, y + 1, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 3.0 / 48);
+        effectRGB = palette.diffusion(calcRGB, errRGB, 2.0 / 32);
         palette.setRGB(x + 2, y + 1, pixels, effectRGB);
-      }
-
-      if (x - 2 >= 0 && y + 2 < h) {
-        calcRGB = palette.getRGB(x - 2, y + 2, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 1.0 / 48);
-        palette.setRGB(x - 2, y + 2, pixels, effectRGB);
       }
 
       if (x - 1 >= 0 && y + 2 < h) {
         calcRGB = palette.getRGB(x - 1, y + 2, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 3.0 / 48);
+        effectRGB = palette.diffusion(calcRGB, errRGB, 2.0 / 32);
         palette.setRGB(x - 1, y + 2, pixels, effectRGB);
       }
 
       if (y + 2 < h) {
         calcRGB = palette.getRGB(x, y + 2, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 5.0 / 48);
+        effectRGB = palette.diffusion(calcRGB, errRGB, 3.0 / 32);
         palette.setRGB(x, y + 2, pixels, effectRGB);
       }
 
       if (x + 1 < w && y + 2 < h) {
         calcRGB = palette.getRGB(x + 1, y + 2, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 3.0 / 48);
+        effectRGB = palette.diffusion(calcRGB, errRGB, 2.0 / 32);
         palette.setRGB(x + 1, y + 2, pixels, effectRGB);
-      }
-
-      if (x + 2 < w && y + 2 < h) {
-        calcRGB = palette.getRGB(x + 2, y + 2, pixels);
-        effectRGB = palette.diffusion(calcRGB, errRGB, 1.0 / 48);
-        palette.setRGB(x + 2, y + 2, pixels, effectRGB);
       }
     }
   }
